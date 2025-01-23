@@ -1,70 +1,153 @@
-# Getting Started with Create React App
+# 📅 Calendar Event Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🌟 Overview
+The **Calendar Event Application** is a web application designed as part of an assignment for the Software Developer Intern role. It integrates with Google Calendar to display a user's events in a table format, offering additional features like filtering, searching, and exporting events. This project showcases backend, frontend, and API integration skills, with a focus on delivering an excellent user experience.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+### 1. **🔐 Google Single Sign-On (SSO)**
+- Securely log in using Google credentials.
+- Uses `@react-oauth/google` to authenticate users and fetch their Google Calendar data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. **📋 Display Google Calendar Events**
+- Retrieves and displays all calendar events for the past year.
+- Events are listed in a table format, sorted by the most recent events first.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 3. **📅 Filter Events by Date**
+- Users can filter events based on a specific date using a date picker.
+- Clearable filter for resetting the date filter.
 
-### `npm test`
+### 4. **🔍 Search Events by Keyword**
+- A search bar allows users to search for events by title.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 5. **⏩ Pagination**
+- Handles large datasets efficiently by dividing events into pages.
+- Users can navigate between pages using "Previous" and "Next" buttons.
 
-### `npm run build`
+### 6. **ℹ️ Event Details Modal**
+- Clicking on an event displays detailed information in a modal.
+- Event descriptions are sanitized to remove unwanted HTML tags.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 7. **📂 Export to CSV**
+- Allows users to download a CSV file containing their event details.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 8. **🌗 Dark Mode**
+- Users can toggle between light and dark themes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🖼️ Frontend
+- **React.js**: Component-based architecture for building the UI.
+- **Tailwind CSS**: For responsive and visually appealing designs.
+- **React DatePicker**: Used for the date filter functionality.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### ⚙️ Backend
+- **Google Calendar API**: For fetching user events.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 📚 Libraries and Tools
+- **@react-oauth/google**: For Google SSO authentication.
+- **React Router**: For navigation within the application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ⚡ Installation and Setup
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
+- Node.js (v14 or higher)
+- Google Cloud Console project with OAuth credentials
 
-### Code Splitting
+### Steps to Set Up Locally
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/calendar-event-app.git
+   cd calendar-event-app
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-### Analyzing the Bundle Size
+3. **Create a `.env` file** and add the following environment variables:
+   ```plaintext
+   VITE_GOOGLE_CLIENT_ID=your-google-client-id
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎯 Usage
 
-### Advanced Configuration
+1. **🔑 Log In**: Use the Google SSO button to log in.
+2. **📋 View Events**: Events are displayed in a table with pagination.
+3. **📅 Filter**: Use the date picker to filter events.
+4. **🔍 Search**: Type a keyword in the search bar to find events.
+5. **📂 Export**: Click the "Export to CSV" button to download event data.
+6. **🌗 Dark Mode**: Toggle dark mode for better visibility in low-light environments.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🗂️ Folder Structure
+```
+src/
+├── components/
+│   ├── Dashboard.jsx
+│   └── Login.jsx
+├── context/
+│   └── AuthContext.jsx
+├── App.jsx
+├── main.jsx
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 📁 Key Files
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `Dashboard.jsx`
+- Handles the core functionality of displaying, filtering, and exporting events.
+- Features include Google Calendar API integration and advanced filtering.
+
+### `Login.jsx`
+- Manages Google SSO using `@react-oauth/google`.
+- Redirects users to the dashboard after a successful login.
+
+### `AuthContext.jsx`
+- Provides authentication context across the application.
+
+---
+
+## 🎨 Additional Features
+- **⚠️ Error Handling**: Gracefully handles API errors.
+- **📱 Responsive Design**: Fully optimized for desktop and mobile devices.
+- **⚡ Performance Optimization**: Implements pagination and lazy loading for better performance.
+
+---
+
+## 🚧 Future Enhancements
+- Add custom event categories.
+- Integrate with other calendar platforms like Outlook.
+- Provide analytics for event trends.
+
+---
+
+## 📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+---
+
+## 📬 Contact
+For any queries or suggestions, feel free to reach out:
+- **Name**: Smitesh Anil Pednekar
+- **Email**: [smiteshpednekar156@gmail.com]
+
+
+---
